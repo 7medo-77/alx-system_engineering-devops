@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -laR | cat -d ' ' -f 5,9 | sort | 
+find . -empty -printf '%f\n'
