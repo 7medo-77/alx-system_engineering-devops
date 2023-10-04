@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $PATH | tr ':' '/n' | wc -l | uniq -u
+echo $PATH | grep -o ":/" | wc -l +1
