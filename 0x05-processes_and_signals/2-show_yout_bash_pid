@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#bash script that returns a list of currently running processes
+# shellckeck disable=SC2009
+ps -A u | grep 'bash'
