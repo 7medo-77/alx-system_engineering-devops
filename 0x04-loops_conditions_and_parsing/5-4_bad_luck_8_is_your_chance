@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-#Bash script that prints the sentence "Best School" 10 times
-#On iteration 9, prints "HI"
+#Loops from 1 to 10, prints numbers except for superstitous ones
 
 i="1"
 while [ $i -le 10 ]; do

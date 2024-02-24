@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-#Bash script that prints the sentence "Best School" 10 times
-#On iteration 9, prints "HI"
+#Displays numbers from 1 to 20, prints:
+#4, then newline, then bad luck from China
+#9, then newline, then bad luck from Japan
+#17, then newline, then bad luck from Italy
 
 i="1"
 while [ $i -le 20 ]; do
