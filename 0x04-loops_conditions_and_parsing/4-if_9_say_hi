@@ -3,11 +3,12 @@
 #On iteration 9, prints "HI"
 
 i="1"
-while [ $i -lt 10 ]; do
+while [ $i -le 10 ]; do
 if [[ $i -eq 9 ]]; then
-		printf "Hi\nBest School\n"
+	echo "Best School"
+	echo "Hi"
 else
-		echo "Best School"
+	echo "Best School"
 fi
 (( i++ ))
 done
