@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#Bash script which displays "To infinity and beyond" indefintely
+i=0
+while [[ &i -lt 10]]
+echo "To infinity and beyond"
+sleep 2
