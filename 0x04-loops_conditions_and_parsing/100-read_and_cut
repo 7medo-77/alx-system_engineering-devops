@@ -2,5 +2,5 @@
 #bash script that displays username, home directory and 
 #user id from /etc/passwd file
 while read -r line; do 
-		echo $line | cut -d ':' -f 1,3,7
+		echo "$line" | cut -d ':' -f 1,3,7
 done < /etc/passwd
