@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#bash script that displays username, home directory and 
+#user id from /etc/passwd file
+file=$(cat /etc/passwd)
+for line in $file
+do echo $line | cut -d ':' -f 1,3,7
+done

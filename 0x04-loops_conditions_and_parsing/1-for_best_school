@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 #Bash script that prints the sentence "Best School" 10 times
-for i in {1..10}; do echo "Best School"; done
+for i in {1..10}
+do echo "Best School"
+done
