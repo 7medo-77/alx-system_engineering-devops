@@ -2,4 +2,5 @@
 #Bash script that modifies the /etc/hosts file 
 #to redirect facebook and localhost
 sed "s/127.0.0.1\tlocalhost/127.0.0.2\tlocalhost/g" >> /etc/hosts
+# shellcheck disable=SC2028
 echo "\n8.8.8.8\tfacebook.com" >> /etc/hosts
