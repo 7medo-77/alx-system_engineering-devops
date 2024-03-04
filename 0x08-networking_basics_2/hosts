@@ -1,9 +1,10 @@
-whatever\tsomehting\n
-whatever\tsomehting\n
 # The following lines are desirable for IPv4 capable hosts
-127.0.0.1       localhost
-# 127.0.1.1 is often used for the FQDN of the machine
-127.0.1.1       thishost.example.org   thishost
+127.0.0.2 localhost
+8.8.8.8 facebook.com
+# 127.0.0.2 localhost
+8.8.8.8 facebook.com
+127.0.0.2 localhost
+8.8.8.8 facebook.com
 192.168.1.10    foo.example.org        foo
 192.168.1.13    bar.example.org        bar
 146.82.138.7    master.debian.org      master
@@ -12,6 +13,3 @@ whatever\tsomehting\n
 ::1             localhost ip6-localhost ip6-loopback
 ff02::1         ip6-allnodes
 ff02::2         ip6-allrouters
-whatever\tsomehting\n
-whatever\tsomehting\n
-
