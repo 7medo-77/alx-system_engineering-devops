@@ -1,4 +1,6 @@
-# Puppet manifest which installs flask package and ensures it's version 2.1.0
-exec { 'kill' :
-  command   => 'pkill killmenow',
+#!/usr/bin/pup
+# Puppet manifest which executes a pkill command on killmenow process
+exec { 'pkill' :
+  command => 'pkill killmenow',
+  path    => '/usr/bin/:/usr/sbin/',
 }
