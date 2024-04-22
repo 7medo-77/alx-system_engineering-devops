@@ -1,0 +1,4 @@
+# Password authentication disabled
+PasswordAuthentication no
+# File location of the private key used to connect
+IdentityFile ~/.ssh/school
