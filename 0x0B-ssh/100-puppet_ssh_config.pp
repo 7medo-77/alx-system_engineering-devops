@@ -1,9 +1,12 @@
-# Puppet manifest which creates an ssh config file 'ssh_config'
-augeas { 'ssh_config' :
-  context  => '~/.ssh/ssh_config',
-  changes  => [
-    "touch ~/.ssh/ssh_config",
-    "set PasswordAuthentication no",
-    ": set IdentityFile ~/.ssh/school",
-  ]
+# Puppet script to create ssh config file
+file_line { 'Turn off passwd auth':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+}
+
+file_line { 'Declare identity file':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    IdentityFile ~/.ssh/school',
 }
