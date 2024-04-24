@@ -3,15 +3,12 @@
 sudo apt-get -y install nginx;
 wait;
 sudo mkdir -p /etc/nginx/;
-html_content="
-<html>
-	<head>Hello World!</head>
-</html>"
+html_content="Hello World!"
 config="
 server {
 	listen 80;
 	root /var/www/html;
 }
 "
-echo "$html_content" > /var/www/html;
+echo "$html_content" > /var/www/html/hello;
 echo "$config" > /etc/nginx/nginx.conf;
