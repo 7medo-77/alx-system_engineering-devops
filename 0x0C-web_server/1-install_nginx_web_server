@@ -10,5 +10,5 @@ server {
 	root /var/www/html;
 }
 "
-echo "$html_content" > /var/www/html/hello;
+echo "$html_content" > /var/www/html/hello.html;
 echo "$config" > /etc/nginx/nginx.conf;
