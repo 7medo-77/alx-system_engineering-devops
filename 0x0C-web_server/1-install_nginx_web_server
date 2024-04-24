@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Bash script which installs and confiugres nginx on remote server
+sudo apt-get -y install nginx;
+wait;
+sudo mkdir -p /etc/nginx/;
+html_content="
+<html>
+	<head>Hello World!</head>
+</html>"
+config="
+server {
+	listen 80;
+	root /var/www/html;
+}
+"
+echo "$html_content" > /var/www/html;
+echo "$config" > /etc/nginx/nginx.conf;
