@@ -10,5 +10,5 @@ redir_conf="server_name _;
 	root /var/www/redirect_me;
 	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 }"
-sed -i "s/server_name _;/$redir_conf/" /etc/nginx/sites_enabled/default
+sed -i "s/server_name _;/$(echo -e "$redir_conf")/" /etc/nginx/sites-enabled/default;
 service nginx start
