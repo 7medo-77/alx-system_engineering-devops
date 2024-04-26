@@ -5,9 +5,10 @@ apt-get -y install nginx
 ufw allow 'Nginx HTTP'
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 mkdir -p /var/www/redirect_me/
-redir_conf="location /redirect_me {
+redir_conf="server_name _;
+	location /redirect_me {
 	root /var/www/redirect_me;
 	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 }"
-sed -i "s/server_name _;/server_name _;\n\t$redir_conf/" /etc/nginx/sites_enabled/default
+sed -i "s/server_name _;/$redir_conf/" /etc/nginx/sites_enabled/default
 service nginx start
