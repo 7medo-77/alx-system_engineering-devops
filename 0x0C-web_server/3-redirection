@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
-# installs nginx and configures it on a remote server
-apt-get -y update
-apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
-mkdir -p /var/www/redirect_me/
-redir_conf="server_name _;
-	location /redirect_me {
-	root /var/www/redirect_me;
-	return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
-}"
-sed -i "s/server_name _;/$(echo -e "$redir_conf")/" /etc/nginx/sites-enabled/default;
-service nginx start
+# Script that configures a new Ubuntu machine to respect above requirements
+sudo apt-get update
+sudo apt-get install -y nginx
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.blog.ehoneahobed.com permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
+
+# # installs nginx and configures it on a remote server
+# apt-get -y update
+# apt-get -y install nginx
+# ufw allow 'Nginx HTTP'
+# echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+# mkdir -p /var/www/redirect_me/
+# redir_conf="server_name _;\n\tlocation /redirect_me {\n\t\troot /var/www/redirect_me;\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+# sed -ie "s/server_name _;/$redir_conf/" /etc/nginx/sites-enabled/default;
+# service nginx start
