@@ -1,0 +1,10 @@
+# installs nginx and configures it on a remote server
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+mkdir -p /var/www/redirect_me/
+Sometext
+redir_conf="server_name _;\n\tlocation /redirect_me {\n\t\troot /var/www/redirect_me;\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+sed -ie "s/server_name _;/$redir_conf/" /etc/nginx/sites-enabled/default;
+service nginx start
