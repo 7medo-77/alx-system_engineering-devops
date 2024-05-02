@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # Bash script which debugs a remote server to get nginx to listen on port 80
-sed -E -i "s/^\s*listen [0-9]{1,5}/\tlisten 80" /etc/nginx/sites-enabled/default
+if [ -L /etc/nginx/sites-enabled/default ]; then
+        sed -E -i 's/^\s*listen [0-9]{1,5}/\tlisten 80/' /etc/nginx/sites-enabled/default
+else
+        sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+fi
 sudo service nginx restart
