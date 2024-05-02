@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+# Bash script which debugs a remote server to get nginx to listen on port 80
+sudo apt update
+sudo apt-install nginx
+service nginx start
