@@ -26,10 +26,11 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  server-frontend
+frontend  server_frontend
         bind *:80
         mode http
         default_backend two_server
+
 backend two_server
         balance roundrobin
         server 531140-web-01 54.82.134.192:80 check
@@ -41,4 +42,5 @@ echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
 echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
 
+haproxy -f /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
