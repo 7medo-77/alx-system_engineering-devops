@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Bash script which installs and configures HAProxy to set up load balancer
-# apt-get install -y --no-install-recommends software-properties-common
+apt-get install --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.0
 apt-get install -y haproxy=2.0.\*
 mkdir -p /etc/haproxy/
