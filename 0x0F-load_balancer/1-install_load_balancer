@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 # Bash script which installs and configures HAProxy to set up load balancer
-# apt-get install -y --no-install-recommends software-properties-common
 add-apt-repository ppa:vbernat/haproxy-2.0
 apt-get -y update
 apt-get install -y haproxy=2.0.\*
-mkdir -p /etc/haproxy/
 haproxy_config=\
 "
 frontend request_80
@@ -14,8 +12,10 @@ frontend request_80
 
 backend two_server
 	balance roundrobin
-	server 531140-web-01:80 check
-	server 531140-web-02:80 check
+	server 531140-web-01 54.82.134.192:80 check
+	server 531140-web-02 54.146.93.43:80 check
 "
+init_config="ENABLED=1"
 echo "$haproxy_config" > /etc/haproxy/haproxy.cfg
+echo "$init_config" > /etc/default/haproxy
 service haproxy restart
