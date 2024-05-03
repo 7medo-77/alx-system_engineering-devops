@@ -18,4 +18,4 @@ backend two_server
 init_config="ENABLED=1"
 echo "$haproxy_config" > /etc/haproxy/haproxy.cfg
 echo "$init_config" > /etc/default/haproxy
-service haproxy restart
+sudo service haproxy restart
