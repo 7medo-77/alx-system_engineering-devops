@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Bash script which debugs a remote server to get nginx to listen on port 80
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx start
 sudo rm -rf /var/run/nginx.pid
-pkill -o nginx
+sudo pkill -o nginx
