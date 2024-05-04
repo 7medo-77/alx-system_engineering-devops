@@ -6,11 +6,11 @@ if (( $# != 2 )); then
 		full_domain=$sub"."$1
 		ip_domain=$(dig "$full_domain" | awk '/^'$full_domain'\s*[0-9]*/ {print $5}')
 		record_type=$(dig "$full_domain" | awk '/^'$full_domain'\s*[0-9]*/ {print $4}')
-		echo "The subdomain $sub is a $record_type and points to $ip_domain"
+		echo "The subdomain $sub is a $record_type record and points to $ip_domain"
 	done
 elif (( $# == 2 )); then
 	domain_full=$2"."$1
 	ip_domain=$(dig "$domain_full" | awk '/^'$domain_full'\s*[0-9]*/ {print $5}')
 	record_type=$(dig "$domain_full" | awk '/^'$domain_full'\s*[0-9]*/ {print $4}')
-	echo "The subdomain $2 is a $record_type and points to $ip_domain"
+	echo "The subdomain $2 is a $record_type record and points to $ip_domain"
 fi
