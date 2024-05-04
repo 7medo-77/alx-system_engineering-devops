@@ -1,9 +1,16 @@
 #!/usr/bin/env bash
 # Bash script which takes two arguments and prints formatted output to STDOUT
-sub_domain_array=("www" "lb-01" "web-01" "web-01")
-if ( ! $2 ); then
+sub_domain_array=("www" "lb-01" "web-01" "web-02")
+if (( $# != 2 )); then
 	for sub in "${sub_domain_array[@]}"; do
-		full_domain=$sub$1
-		dig "$full_domain" | awk '/"$full_domain"/'
+		full_domain=$sub"."$1
+		ip_domain=$(dig "$full_domain" | awk '/^'$full_domain'\s*[0-9]*/ {print $5}')
+		record_type=$(dig "$full_domain" | awk '/^'$full_domain'\s*[0-9]*/ {print $4}')
+		echo "The subdomain $sub is a $record_type and points to $ip_domain"
 	done
+elif (( $# == 2 )); then
+	domain_full=$2"."$1
+	ip_domain=$(dig "$domain_full" | awk '/^'$domain_full'\s*[0-9]*/ {print $5}')
+	record_type=$(dig "$domain_full" | awk '/^'$domain_full'\s*[0-9]*/ {print $4}')
+	echo "The subdomain $2 is a $record_type and points to $ip_domain"
 fi
