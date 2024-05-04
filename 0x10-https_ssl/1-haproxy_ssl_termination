@@ -1,0 +1,12 @@
+
+frontend  server_frontend
+		bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/domain.pem
+		redirect scheme https if !{ ssl_fc }
+        mode http
+        default_backend two_server
+
+backend two_server
+        balance roundrobin
+        server 531140-web-01 54.82.134.192:80 check
+        server 531140-web-02 54.146.93.43:80 check
