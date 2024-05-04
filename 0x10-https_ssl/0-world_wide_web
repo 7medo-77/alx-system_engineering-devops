@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script which takes two arguments and prints formatted output to STDOUT
+sub_domain_array=("www" "lb-01" "web-01" "web-01")
+if ( ! $2 ); then
+	for sub in "${sub_domain_array[@]}"; do
+		full_domain=$sub$1
+		dig "$full_domain" | awk '/"$full_domain"/'
+	done
+fi
