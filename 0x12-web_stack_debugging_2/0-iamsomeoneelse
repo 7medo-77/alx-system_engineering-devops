@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Bash script which runs whoami with the user provided as a command line argument
 temp_text=$(cat /etc/passwd | grep -E "$1" | cut -d ':' -f 1-6)
-sed "s/$1.*/$(echo "$temp_text")/" /etc/passwd
+sed "s/$1.*/$temp_text)/" /etc/passwd
 sudo su "$1" -c whoami
