@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
-su "$1" -c whoami
+# Bash script which runs whoami with the user provided as a command line argument
+su - "$1" -c whoami
