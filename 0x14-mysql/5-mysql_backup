@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# A bash script which dumps a sql database into a compressed file,
+# accessed only by the root user and accepts a password as the first command line argument
+date_var=$(date +%d-%m-%Y)
+sudo mysqldump -u root -p "$1" -A > backup.sql
+tar -czf "$date_var".tar.gz "backup.sql"
