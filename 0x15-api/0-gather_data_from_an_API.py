@@ -29,11 +29,12 @@ if __name__ == "__main__":
 
     for task in resDict:
         if task.get('userId') == int(id):
-            totalNum+=1
+            totalNum += 1
             if (task.get('completed')):
-                doneNum+=1
+                doneNum += 1
                 taskList.append(task['title'])
 
-    print("Employee {} is done with tasks({}/{})".format(name, doneNum, totalNum))
+    print("Employee {} is done with tasks({}/{})"
+          .format(name, doneNum, totalNum))
     for task in taskList:
         print("\t {}".format(task))
