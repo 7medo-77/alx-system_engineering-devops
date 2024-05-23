@@ -23,7 +23,6 @@ if __name__ == "__main__":
         if user.get('id') == int(id):
             name = user['username']
 
-    print(name)
     response = requests.request("GET", apiCall)
     resDict = response.json()
     doneNum = 0
@@ -42,6 +41,6 @@ if __name__ == "__main__":
 
     with open(fileName, 'w') as csv:
         fieldnames = ['userId', 'username', 'task_status', 'title']
-        writer = DictWriter(csv, fieldnames, delimiter=',', quotechar='"')
+        writer = DictWriter(csv, fieldnames, delimiter=',', quotechar='\"')
         for task in taskList:
             writer.writerow(task)
