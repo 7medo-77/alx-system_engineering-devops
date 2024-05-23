@@ -4,7 +4,6 @@ Module which fetches data from an API
 """
 import requests
 import sys
-from pprint import pprint
 
 
 if __name__ == "__main__":
@@ -25,7 +24,6 @@ if __name__ == "__main__":
     doneNum = 0
     totalNum = 0
     taskList = []
-    # pprint(resDict)
 
     for task in resDict:
         if task.get('userId') == int(id):
@@ -34,7 +32,7 @@ if __name__ == "__main__":
                 doneNum += 1
                 taskList.append(task['title'])
 
-    print("Employee {} is done with tasks({}/{})"
+    print("Employee {} is done with tasks({}/{}):"
           .format(name, doneNum, totalNum))
     for task in taskList:
         print("\t {}".format(task))
