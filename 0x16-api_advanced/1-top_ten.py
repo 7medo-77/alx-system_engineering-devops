@@ -13,10 +13,10 @@ def top_ten(subreddit):
         response_json = response.json()
         resArray = response_json['data']['children']
         titleArray = []
-        for dict_result in resArray:
+        for dict_result in resArray[0:10]:
             titleArray.append(dict_result['data']['title'])
 
         for title in titleArray:
-            return(title)
+            print(title)
     except requests.RequestException:
         return 0
