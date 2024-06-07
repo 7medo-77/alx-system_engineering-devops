@@ -1,10 +1,13 @@
 exec {'configuration':
-  command => "sudo sed -i "s/listen 80 default_server;/listen 80 default_server;\\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 https:\/\/youtube.com\/;\\n\\t}/" /etc/nginx/sites-available/default",
+  command  => 'sudo sed -i "s/listen 80 default_server;/listen 80 default_server;
+  \\n\\tlocation \/redirect_me {\\n\\t\\treturn 301 
+  https:\/\/youtube.com\/;\\n\\t}/" 
+  /etc/nginx/sites-available/default',
   provider => shell,
 }
 
 exec {'update':
-  command => 'sudo apt-get -y update',
+  command  => 'sudo apt-get -y update',
   provider => shell
 }
 
@@ -26,6 +29,6 @@ file {'404.html':
 }
 
 exec {'restart':
-  command => 'sudo service nginx restart',
+  command  => 'sudo service nginx restart',
   provider => shell
 }
