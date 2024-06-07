@@ -1,3 +1,5 @@
+#Puppet script to configure a fresh ubuntu install with nginx
+
 exec {'update':
   command  => 'sudo apt-get -y update',
   provider => shell
